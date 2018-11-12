@@ -5,6 +5,8 @@ import com.fantj.springbootjpa.repostory.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService{
     @Autowired
@@ -31,6 +33,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public void delUser(Integer userId) {
          userRepository.deleteById(userId);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
 
