@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .talk_con{
+            width:600px;
+            height:500px;
+            border:1px solid #666;
+            margin:50px auto 0;
+            background:#f9f9f9;
+        }
+        .talk_show{
+            width:580px;
+            height:420px;
+            border:1px solid #666;
+            background:#fff;
+            margin:10px auto 0;
+            overflow:auto;
+        }
+        .talk_input{
+            width:580px;
+            margin:10px auto 0;
+        }
+        .whotalk{
+            width:80px;
+            height:30px;
+            float:left;
+            outline:none;
+        }
+        .talk_word{
+            width:420px;
+            height:26px;
+            padding:0px;
+            float:left;
+            margin-left:10px;
+            outline:none;
+            text-indent:10px;
+        }
+        .talk_sub{
+            width:56px;
+            height:30px;
+            float:left;
+            margin-left:10px;
+        }
+        .atalk{
+            margin:10px;
+        }
+        .atalk span{
+            display:inline-block;
+            background:#0181cc;
+            border-radius:10px;
+            color:#fff;
+            padding:5px 10px;
+        }
+        .btalk{
+            margin:10px;
+            text-align:right;
+        }
+        .btalk span{
+            display:inline-block;
+            background:#ef8201;
+            border-radius:10px;
+            color:#fff;
+            padding:5px 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        //
+        document.onkeydown = function (ev) {
+            if (ev && ev.keyCode == 13){
+                send();
+                clear();
+            }
+        }
+        var socket;
+        if (window.WebSocket) {
+            socket = new WebSocket("ws://192.168.1.33:9999");
+            // socket = new WebSocket("ws://127.0.0.1:9999");
+            // socket = new WebSocket("ws://192.168.43.186:9999");
+            socket.onmessage = function (ev) {
+                atalkAppendIn("接收:"+socket.channel + ":" + ev.data)
+            };
+            socket.onopen = function () {
+                btalkAppendIn("连接已建立");
+            }
+            socket.onclose = function () {
+                btalkAppendIn("连接关闭");
+            };
+        }else {
+            alert("浏览器不支持");
+        }
+        function send(){
+            var message = document.getElementById("talkwords");
+            if (!window.WebSocket){
+                return
+            }
+            if (socket.readyState === WebSocket.OPEN){
+                socket.send(message.value);
+                btalkAppendIn("发送:"+ message.value);
+                clear();
+            } else {
+                alert("WebSocket 建立失败");
+            }
+        }
+
+        function atalkAppendIn(text) {
+            var append = document.getElementById("words");
+            append.innerHTML+= '<div class="atalk"><span>'+ text +'</span></div>';
+        }
+
+        function btalkAppendIn(text) {
+            var append = document.getElementById("words");
+            append.innerHTML+= '<div class="btalk"><span>'+ text +'</span></div>';
+        }
+        function clear () {
+            var elementById = document.getElementById("talkwords");
+            elementById.value = "";
+        }
+
+    </script>
+</head>
+<body>
+<div class="talk_con">
+    <div class="talk_show" id="words">
+    </div>
+    <div class="talk_input">
+        <!--<select class="whotalk" id="who">-->
+            <!--<option value="0">A说：</option>-->
+            <!--<option value="1">B说：</option>-->
+        <!--</select>-->
+        <input type="text" class="talk_word" id="talkwords">
+        <input type="button" onclick="send()" value="发送" class="talk_sub" id="talksub">
+    </div>
+</div>
+</body>
+</html>

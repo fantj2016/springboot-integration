@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form onsubmit="return false">
+        <input type="text" id="message" name="message" value="hello "/><br>
+        <input type="button" value="发送" onclick="send()" />
+        <hr>
+        <h3>服务器返回的应答消息</h3>
+        <textarea id="responseText" style="width: 800px; height: 300px;">
+
+        </textarea>
+    </form>
+</body>
+<script type="text/javascript">
+
+  var socket;  
+    
+  if(!window.WebSocket){  
+      window.WebSocket = window.MozWebSocket;  
+  }  
+   
+  if(window.WebSocket){  
+      socket = new WebSocket("ws://192.168.1.33:9999");  
+        
+    socket.onmessage = function (ev) {
+        appendln("接受:"+ ev.data)
+    };
+      socket.onopen = function(event){  
+            appendln("WebSocket 连接已建立");  
+              
+      };  
+   
+      socket.onclose = function(event){  
+            appendln("WebSocket 连接已关闭");  
+      };  
+  }else{  
+        alert("浏览器不支持WebSocket协议");  
+  }  
+   
+  function send(){
+    var message = document.getElementById("message");
+    if(!window.WebSocket){return;}  
+    if(socket.readyState === WebSocket.OPEN){  
+        socket.send(message.value);  
+        appendln("发送:" + message.value);  
+    }else{  
+        alert("WebSocket连接建立失败");  
+    }  
+  }  
+    
+  function appendln(text) {
+    var ta = document.getElementById('responseText');  
+    ta.value += text + "\r\n";  
+  }
+    
+  function clear() {  
+    var ta = document.getElementById('responseText');  
+    ta.value = "";  
+  }
+ 
+</script>
+</html>

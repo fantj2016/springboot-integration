@@ -12,6 +12,7 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+
     @GetMapping("/{id}")
     public User findById(@PathVariable Integer id){
         return userService.queryById(id);

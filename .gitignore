@@ -1,0 +1,43 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+将删除 springboot-IM-WebSocket/.gitignore
+将删除 springboot-IM-WebSocket/.mvn/
+将删除 springboot-IM-WebSocket/mvnw
+将删除 springboot-IM-WebSocket/mvnw.cmd
+将删除 springboot-IM-WebSocket/pom.xml
+将删除 springboot-IM-WebSocket/src/main/java/com/fantj/springbootjpa/JpqApplication.java
+将删除 springboot-IM-WebSocket/src/main/java/com/fantj/springbootjpa/controller/
+将删除 springboot-IM-WebSocket/src/main/java/com/fantj/springbootjpa/html/
+将删除 springboot-IM-WebSocket/src/main/java/com/fantj/springbootjpa/pojo/
+将删除 springboot-IM-WebSocket/src/main/java/com/fantj/springbootjpa/repostory/
+将删除 springboot-IM-WebSocket/src/main/java/com/fantj/springbootjpa/service/
+将删除 springboot-IM-WebSocket/src/main/resources/application.properties
+将删除 springboot-IM-WebSocket/src/test/
+将删除 springboot-IM-netty/.gitignore
+将删除 springboot-IM-netty/.mvn/
+将删除 springboot-IM-netty/mvnw
+将删除 springboot-IM-netty/mvnw.cmd
+将删除 springboot-IM-netty/pom.xml
+将删除 springboot-IM-netty/src/main/java/com/fantj/springbootjpa/JpqApplication.java
+将删除 springboot-IM-netty/src/main/java/com/fantj/springbootjpa/controller/
+将删除 springboot-IM-netty/src/main/java/com/fantj/springbootjpa/pojo/
+将删除 springboot-IM-netty/src/main/java/com/fantj/springbootjpa/repostory/
+将删除 springboot-IM-netty/src/main/java/com/fantj/springbootjpa/service/
+将删除 springboot-IM-netty/src/main/resources/application.properties
+将删除 springboot-IM-netty/src/test/
+将删除 springboot-es/src/main/resources/rebel-remote.xml
+将删除 springboot-jpa-redis/.gitignore
+将删除 springboot-jpa-redis/.mvn/
+将删除 springboot-jpa-redis/mvnw
+将删除 springboot-jpa-redis/mvnw.cmd
+将删除 springboot-jpa-redis/pom.xml
+将删除 springboot-jpa-redis/src/main/java/
+将删除 springboot-jpa-redis/src/main/resources/application.properties
+将删除 springboot-jpa-redis/src/test/

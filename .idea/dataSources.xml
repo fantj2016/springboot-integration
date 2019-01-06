@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="aliyun" uuid="eb6634a6-bf9a-4c0c-81c3-655e0e38f5c3">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://fantj.top:3306</jdbc-url>
+      <driver-properties>
+        <property name="autoReconnect" value="true" />
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="yearIsDateType" value="false" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="meng" uuid="d9165307-4990-4c84-9015-435cf131f280">
+      <driver-ref>oracle</driver-ref>
+      <synchronize>true</synchronize>
+      <remarks>meng</remarks>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@//bd.xkenmon.cn:15210/helowin</jdbc-url>
+      <driver-properties>
+        <property name="v$session.program" value="DataGrip" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="@106.15.199.8" uuid="91023966-ecc2-403a-bd00-3821d7ae7175">
+      <driver-ref>oracle</driver-ref>
+      <synchronize>true</synchronize>
+      <remarks>zuoyu</remarks>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@106.15.199.8:1521:XE</jdbc-url>
+      <driver-properties>
+        <property name="v$session.program" value="DataGrip" />
+      </driver-properties>
+    </data-source>
+  </component>
+</project>
